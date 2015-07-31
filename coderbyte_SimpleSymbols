@@ -1,0 +1,25 @@
+def SimpleSymbols(str)
+  
+  flag = true
+  my_str = str.split('')
+  
+  my_str.each_with_index do |x, idx|
+	if x.match(/\w/)
+      if idx == 0 || idx == -1
+        flag = false
+        break
+      elsif my_str[idx-1] == '+' && my_str[idx+1] == '+'
+        flag = true
+      else
+        flag = false
+        break
+      end
+    end
+  end
+
+  return flag
+end
+   
+# keep this function call here 
+# to see how to enter arguments in Ruby scroll down   
+SimpleSymbols(STDIN.gets)           
